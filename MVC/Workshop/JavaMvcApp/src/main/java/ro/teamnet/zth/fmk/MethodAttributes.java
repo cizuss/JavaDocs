@@ -9,6 +9,19 @@ public class MethodAttributes {
     String methodName;
     String methodType;
 
+<<<<<<< HEAD
+    Class[] parameterTypes;
+
+    public Class[] getParameterTypes() {
+        return parameterTypes;
+    }
+
+    public void setParameterTypes(Class[] parameterTypes) {
+        this.parameterTypes = parameterTypes;
+    }
+
+=======
+>>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
     public String getControllerClass() {
         return controllerClass;
     }

@@ -4,8 +4,13 @@ import java.sql.*;
 
 public class DBManager {
 
+<<<<<<< HEAD
+    public static final String CONNECTION_STRING = "jdbc:h2:"
+            + DBProperties.IP + ":" + DBProperties.PORT;
+=======
     public static final String CONNECTION_STRING = "jdbc:oracle:thin:@"
             + DBProperties.IP + ":" + DBProperties.PORT + ":" + DBProperties.SID;
+>>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
 
     private static boolean isDriverRegistered = false;
 
@@ -23,7 +28,11 @@ public class DBManager {
 
     public static Connection getConnection() throws ClassNotFoundException, SQLException {
         registerDriver();
+<<<<<<< HEAD
+        return DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+=======
         return DriverManager.getConnection(CONNECTION_STRING, DBProperties.USER, DBProperties.PASS);
+>>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
     }
 
     public static boolean checkConnection(Connection connection) {

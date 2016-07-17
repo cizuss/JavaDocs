@@ -1,0 +1,16 @@
+127.0.0.1 - - [17/Jul/2016:02:47:30 -0700] "POST /app/mvc/jobs/one HTTP/1.1" 200 4 http-bio-8080-exec-1 344
+0:0:0:0:0:0:0:1 - - [17/Jul/2016:02:47:36 -0700] "GET /app/mvc/jobs/all HTTP/1.1" 200 4 http-bio-8080-exec-3 16
+0:0:0:0:0:0:0:1 - - [17/Jul/2016:02:47:38 -0700] "GET /app/mvc/jobs/all HTTP/1.1" 200 4 http-bio-8080-exec-4 16
+0:0:0:0:0:0:0:1 - - [17/Jul/2016:02:47:48 -0700] "GET /app/mvc/jobs/all HTTP/1.1" 200 1585 http-bio-8080-exec-5 125
+127.0.0.1 - - [17/Jul/2016:02:47:54 -0700] "POST /app/mvc/jobs/one HTTP/1.1" 200 4 http-bio-8080-exec-7 16
+0:0:0:0:0:0:0:1 - - [17/Jul/2016:02:47:56 -0700] "GET /app/mvc/jobs/all HTTP/1.1" 200 1654 http-bio-8080-exec-6 15
+127.0.0.1 - - [17/Jul/2016:03:00:59 -0700] "GET /app/mvc/locations/all HTTP/1.1" 200 4062 http-bio-8080-exec-1 375
+127.0.0.1 - - [17/Jul/2016:03:02:36 -0700] "POST /app/mvc/locations/one HTTP/1.1" 200 4 http-bio-8080-exec-3 31
+127.0.0.1 - - [17/Jul/2016:03:02:45 -0700] "GET /app/mvc/locations/all HTTP/1.1" 200 4166 http-bio-8080-exec-5 16
+127.0.0.1 - - [17/Jul/2016:03:03:29 -0700] "DELETE /app/mvc/locations/one?id=3213 HTTP/1.1" 200 4 http-bio-8080-exec-7 31
+0:0:0:0:0:0:0:1 - - [17/Jul/2016:03:03:34 -0700] "GET /app/mvc/jobs/all HTTP/1.1" 200 1654 http-bio-8080-exec-9 15
+0:0:0:0:0:0:0:1 - - [17/Jul/2016:03:03:39 -0700] "GET /app/mvc/locations/all HTTP/1.1" 200 4062 http-bio-8080-exec-10 0
+127.0.0.1 - - [17/Jul/2016:03:03:54 -0700] "POST /app/mvc/locations/one?id=3213 HTTP/1.1" 200 4 http-bio-8080-exec-2 16
+0:0:0:0:0:0:0:1 - - [17/Jul/2016:03:03:57 -0700] "GET /app/mvc/locations/all HTTP/1.1" 200 4166 http-bio-8080-exec-10 32
+127.0.0.1 - - [17/Jul/2016:03:04:06 -0700] "DELETE /app/mvc/locations/one?id=3213 HTTP/1.1" 200 4 http-bio-8080-exec-5 16
+0:0:0:0:0:0:0:1 - - [17/Jul/2016:03:04:09 -0700] "GET /app/mvc/locations/all HTTP/1.1" 200 4062 http-bio-8080-exec-10 15
