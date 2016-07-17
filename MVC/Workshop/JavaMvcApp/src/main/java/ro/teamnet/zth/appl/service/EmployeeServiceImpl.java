@@ -27,7 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void saveOneEmployee(String firstName, String lastName) {
-        Employee newEmployee = new Employee();
+        Employee newEmployee = new EmployeeDao().getEmployeeById((long) 101);
         newEmployee.setFirstName(firstName);
         newEmployee.setLastName(lastName);
         new EmployeeDao().insertEmployee(newEmployee);

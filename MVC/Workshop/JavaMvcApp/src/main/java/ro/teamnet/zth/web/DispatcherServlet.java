@@ -1,16 +1,14 @@
 package ro.teamnet.zth.web;
 
-<<<<<<< HEAD
 import org.codehaus.jackson.map.ObjectMapper;
 import ro.teamnet.zth.api.annotations.MyController;
 import ro.teamnet.zth.api.annotations.MyRequestMethod;
 import ro.teamnet.zth.api.annotations.MyRequestParameter;
-=======
 import ro.teamnet.zth.api.annotations.MyController;
 import ro.teamnet.zth.api.annotations.MyRequestMethod;
 import ro.teamnet.zth.appl.controller.DepartmentController;
 import ro.teamnet.zth.appl.controller.EmployeeController;
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
+
 import ro.teamnet.zth.fmk.AnnotationScanUtils;
 import ro.teamnet.zth.fmk.MethodAttributes;
 
@@ -18,7 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-<<<<<<< HEAD
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -29,15 +27,6 @@ import java.lang.reflect.Parameter;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Created by cizuss94 on 7/15/2016.
- */
-public class DispatcherServlet extends HttpServlet {
-
-    Map<String, MethodAttributes> allowedMethods;
-
-    @Override
-=======
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
@@ -50,12 +39,10 @@ import java.util.List;
  */
 public class DispatcherServlet extends HttpServlet {
     public HashMap<String, MethodAttributes> allowedMethods;
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
     public void init() throws ServletException {
         allowedMethods = new HashMap<String, MethodAttributes>();
         try {
             List<Class> controllers = (List<Class>) AnnotationScanUtils.getClasses("ro.teamnet.zth.appl.controller");
-<<<<<<< HEAD
             for (Class controller : controllers) {
                 if (controller.isAnnotationPresent(MyController.class)) {
                     MyController annotation = (MyController) controller.getAnnotation(MyController.class);
@@ -75,34 +62,17 @@ public class DispatcherServlet extends HttpServlet {
                             newMethodAttributes.setParameterTypes(method.getParameterTypes());
                             String finalPath = urlPath + methodUrlPath + methodAnnotation.methodType();
                             allowedMethods.put(finalPath, newMethodAttributes);
-=======
-            for (Class controller: controllers) {
-                if (controller.isAnnotationPresent(MyController.class)) {
-                    MyController myControllerAnnotation = (MyController)controller.getAnnotation(MyController.class);
-                    String urlPath = myControllerAnnotation.urlPath();
-                    Method[] methods = controller.getMethods();
-                    for (Method method : methods) {
-                        if (method.isAnnotationPresent(MyRequestMethod.class)) {
-                            MyRequestMethod ann = method.getAnnotation(MyRequestMethod.class);
-                            MethodAttributes methodAttributes = new MethodAttributes();
-                            methodAttributes.setControllerClass(controller.getName());
-                            methodAttributes.setMethodName(method.getName());
-                            methodAttributes.setMethodType(ann.methodType());
-
-                            allowedMethods.put(urlPath + ann.urlPath(), methodAttributes);
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
                         }
                     }
                 }
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+            } catch(ClassNotFoundException e){
+                e.printStackTrace();
+            } catch(IOException e){
+                e.printStackTrace();
+            }
         }
-    }
 
-<<<<<<< HEAD
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         dispatchReply("GET", req, resp);
@@ -157,6 +127,7 @@ public class DispatcherServlet extends HttpServlet {
                 }
             }
             Object objectToReply = controllerClass.newInstance();
+            resp.getWriter().write(new ObjectMapper().writeValueAsString(objectToReply));
             return methodToExecute.invoke(objectToReply, methodArguments.toArray());
         }
         // altfel, daca request e de tip get sau delete
@@ -177,42 +148,4 @@ public class DispatcherServlet extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
         resp.getWriter().write(mapper.writeValueAsString(objectToReply));
     }
-
-=======
-    protected void doGet(HttpServletRequest request, HttpServletResponse response){
-        dispatchReply("GET", request, response);
-    }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response){
-        dispatchReply("POST", request, response);
-    }
-    private void dispatchReply(String id, HttpServletRequest request, HttpServletResponse response) {
-        Object r = null;
-        try {
-            r = dispatch(request, response);
-        }
-        catch (Exception e) {
-            sendExceptionError(e, request, response);
-        }
-        try {
-            reply(r, request, response);
-        } catch (IOException e) {
-            sendExceptionError(e, request, response);
-        }
-    }
-    private Object dispatch(HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InstantiationException, InvocationTargetException {
-        String pathInfo = request.getPathInfo();
-        MethodAttributes methodAttributes = allowedMethods.get(pathInfo);
-        Class controllerClass = Class.forName(methodAttributes.getControllerClass());
-        Method methodToExecute = controllerClass.getDeclaredMethod(methodAttributes.getMethodName());
-        Object objectToReturn = controllerClass.newInstance();
-        objectToReturn = methodToExecute.invoke(objectToReturn);
-        return objectToReturn;
-    }
-    private void reply(Object resp, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.getWriter().write(String.valueOf(resp));
-    }
-    private void sendExceptionError(Exception e, HttpServletRequest request, HttpServletResponse response) {
-
-    }
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
 }

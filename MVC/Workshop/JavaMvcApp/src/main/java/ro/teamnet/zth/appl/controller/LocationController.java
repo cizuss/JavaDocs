@@ -2,7 +2,6 @@ package ro.teamnet.zth.appl.controller;
 
 import ro.teamnet.zth.api.annotations.MyController;
 import ro.teamnet.zth.api.annotations.MyRequestMethod;
-<<<<<<< HEAD
 import ro.teamnet.zth.api.annotations.MyRequestParameter;
 import ro.teamnet.zth.appl.domain.Location;
 import ro.teamnet.zth.appl.service.LocationServiceImpl;
@@ -20,7 +19,6 @@ import java.util.List;
 @MyController(urlPath = "/locations")
 public class LocationController {
     @MyRequestMethod(urlPath = "/all")
-<<<<<<< HEAD
     public List<Location> getAllLocations() {
         return new LocationServiceImpl().findAllLocations();
     }
@@ -39,13 +37,5 @@ public class LocationController {
                                 @MyRequestParameter(name = "stateprovince") String stateProvince)
     {
         new LocationServiceImpl().saveOneLocation(streetAddress, postalCode, city, stateProvince);
-=======
-    public String getAllLocations() {
-        return "allLocations";
-    }
-    @MyRequestMethod(urlPath = "/one")
-    public String getOneLocation() {
-        return "oneRandomLocation";
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
     }
 }

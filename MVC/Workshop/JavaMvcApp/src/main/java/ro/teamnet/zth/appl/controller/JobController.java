@@ -2,7 +2,6 @@ package ro.teamnet.zth.appl.controller;
 
 import ro.teamnet.zth.api.annotations.MyController;
 import ro.teamnet.zth.api.annotations.MyRequestMethod;
-<<<<<<< HEAD
 import ro.teamnet.zth.api.annotations.MyRequestParameter;
 import ro.teamnet.zth.appl.domain.Job;
 import ro.teamnet.zth.appl.service.JobServiceImpl;
@@ -20,7 +19,6 @@ import java.util.List;
 @MyController(urlPath = "/jobs")
 public class JobController {
     @MyRequestMethod(urlPath = "/all")
-<<<<<<< HEAD
     public List<Job> getAllJobs() {
         return new JobServiceImpl().findAllJobs();
     }
@@ -39,13 +37,5 @@ public class JobController {
                            @MyRequestParameter(name = "maxsalary") int maxSalary)
     {
         new JobServiceImpl().saveOneJob(jobId,jobTitle, minSalary, maxSalary);
-=======
-    public String getAllJobs() {
-        return "allJobs";
-    }
-    @MyRequestMethod(urlPath = "/one")
-    public String getOneJob() {
-        return "oneRandomJob";
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
     }
 }

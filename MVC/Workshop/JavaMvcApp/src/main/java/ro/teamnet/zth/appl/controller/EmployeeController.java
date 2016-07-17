@@ -2,7 +2,6 @@ package ro.teamnet.zth.appl.controller;
 
 import ro.teamnet.zth.api.annotations.MyController;
 import ro.teamnet.zth.api.annotations.MyRequestMethod;
-<<<<<<< HEAD
 import ro.teamnet.zth.api.annotations.MyRequestParameter;
 import ro.teamnet.zth.appl.domain.Employee;
 import ro.teamnet.zth.appl.service.EmployeeServiceImpl;
@@ -21,7 +20,6 @@ import java.util.StringJoiner;
 @MyController(urlPath = "/employees")
 public class EmployeeController {
     @MyRequestMethod(urlPath = "/all")
-<<<<<<< HEAD
     public List<Employee> getAllEmployees() {
         return new EmployeeServiceImpl().findAllEmployees();
     }
@@ -38,13 +36,5 @@ public class EmployeeController {
                              @MyRequestParameter(name = "lastname") String lastName)
     {
         new EmployeeServiceImpl().saveOneEmployee(firstName, lastName);
-=======
-    public String getAllEmployees() {
-        return "allEmployees";
-    }
-    @MyRequestMethod(urlPath = "/one")
-    public String getOneEmployee() {
-        return "oneRandomEmployee";
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
     }
 }

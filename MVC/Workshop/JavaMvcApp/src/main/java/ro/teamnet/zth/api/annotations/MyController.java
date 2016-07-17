@@ -12,10 +12,6 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-<<<<<<< HEAD
 public @interface MyController {
-=======
-public @interface MyController  {
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
     String urlPath();
 }

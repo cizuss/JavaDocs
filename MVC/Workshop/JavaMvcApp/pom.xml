@@ -19,31 +19,26 @@
     <dependencies>
 
         <dependency>
-<<<<<<< HEAD
-=======
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>${ojdbc6.version}</version>
-            <scope>provided</scope>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-jaxrs</artifactId>
+            <version>1.9.13</version>
         </dependency>
 
-        <dependency>
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-<<<<<<< HEAD
+        <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.192</version>
         </dependency>
 
-=======
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-all -->
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -57,16 +52,8 @@
             <version>${javax.servlet-api.version}</version>
             <scope>provided</scope>
         </dependency>
-<<<<<<< HEAD
 
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-jaxrs</artifactId>
-            <version>1.9.13</version>
-        </dependency>
 
-=======
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
     </dependencies>
 
     <build>
@@ -85,11 +72,7 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-<<<<<<< HEAD
                     <url>http://localhost:8080/manager/text</url>
-=======
-                    <url>http://192.168.99.100:49100/manager/text</url>
->>>>>>> 855c1a6880e16f18104918fdd2e8cbca3602e0f4
                     <username>tomcat</username>
                     <password>tomcat</password>
                     <path>/app</path>
